@@ -24,8 +24,8 @@
 // [name]-76.png
 // [name]-76@2x.png
 // [name]-83.5@2x.png
-// [name]-512.png		(512px x 512px)
-// [name]-512@2x.png	(1024px x 1024px)
+// [name]-512.png      (512px x 512px)
+// [name]-512@2x.png   (1024px x 1024px)
 
 // bring Photoshop into focus
 #target Photoshop
