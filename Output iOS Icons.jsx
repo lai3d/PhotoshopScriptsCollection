@@ -27,6 +27,17 @@
 // [name]-512.png      (512px x 512px)
 // [name]-512@2x.png   (1024px x 1024px)
 
+//Installation:
+// 1. Place Script in 
+//  <Photoshop Directory>\presets\scripts\
+//
+// 2. Restart Photoshop
+//
+// 3. Select File -> Scripts -> Corner Editor
+//
+// Set a keyboard shortcut or record an action
+// for faster access.
+
 // bring Photoshop into focus
 #target Photoshop
 
