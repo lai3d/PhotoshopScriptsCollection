@@ -55,11 +55,9 @@ main();
 
 function main() {
 
-    var cleanup = confirm("This script outputs Android store, SHDPI, HDPI, "
-                        + "MDPI, and LDPI icons from a source PSD at least 512px x "
-                        + "512px\r\r"
-                        + "Do you want to delete your original files when "
-                        + "complete?");
+    alert("This script outputs Android store, SHDPI, HDPI, "
+        + "MDPI, and LDPI icons from a source PSD at least 512px x "
+        + "512px\r\r");
 
     // Ask user for input folder
 	var inputFile = File.openDialog("Select a PSD file at least 512px x 512px","PSD File:*.psd");
@@ -70,19 +68,19 @@ function main() {
     var docRef = app.activeDocument;
 
 	// Make output folders
-	var dirstore = Folder(app.activeDocument.path+"/store");
+	var dirstore = Folder(app.activeDocument.path+"/AnroidIcons/store");
 	if(!dirstore.exists) dirstore.create();
-    var dirxxxhdpi = Folder(app.activeDocument.path+"/drawable-xxxhdpi");
+    var dirxxxhdpi = Folder(app.activeDocument.path+"/AnroidIcons/drawable-xxxhdpi");
     if(!dirxxxhdpi.exists) dirxxxhdpi.create();
-    var dirxxhdpi = Folder(app.activeDocument.path+"/drawable-xxhdpi");
+    var dirxxhdpi = Folder(app.activeDocument.path+"/AnroidIcons/drawable-xxhdpi");
     if(!dirxxhdpi.exists) dirxxhdpi.create();
-	var dirxhdpi = Folder(app.activeDocument.path+"/drawable-xhdpi");
+	var dirxhdpi = Folder(app.activeDocument.path+"/AnroidIcons/drawable-xhdpi");
 	if(!dirxhdpi.exists) dirxhdpi.create();
-	var dirhdpi = Folder(app.activeDocument.path+"/drawable-hdpi");
+	var dirhdpi = Folder(app.activeDocument.path+"/AnroidIcons/drawable-hdpi");
 	if(!dirhdpi.exists) dirhdpi.create();
-	var dirmdpi = Folder(app.activeDocument.path+"/drawable-mdpi");
+	var dirmdpi = Folder(app.activeDocument.path+"/AnroidIcons/drawable-mdpi");
 	if(!dirmdpi.exists) dirmdpi.create();
-	var dirldpi = Folder(app.activeDocument.path+"/drawable-ldpi");
+	var dirldpi = Folder(app.activeDocument.path+"/AnroidIcons/drawable-ldpi");
 	if(!dirldpi.exists) dirldpi.create();
 
     // Set ruler untis to pixels
@@ -105,8 +103,6 @@ function main() {
 
     // Clean up
     app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
-    // Delete the original
-	if (cleanup) inputFile.remove();
 
     alert("Done!");
 }
@@ -114,6 +110,11 @@ function main() {
 function resize(dir,size) {
     // Setup file name
     var fname = app.activeDocument.name.replace(/\s+/g, '_').replace(/([a-z\d])([A-Z])/g, '$1_$2').toLowerCase();
+    n = fname.lastIndexOf(".");
+    if (n > 0) {
+        var basename = fname.substring(0,n);
+        fname = basename+".png";
+   }
 
     // Set export options
     var opts, file;
