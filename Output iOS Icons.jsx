@@ -2,11 +2,14 @@
 // 2014 Todd Linkner
 // 2016 Larry Lai
 // License: none (public domain)
-// v1.3
+// v1.4
 //
-// This script is for Photoshop CC 2015. It outputs iOS icons of the following 
+// This script is for Photoshop CC 2017. It outputs iOS icons of the following 
 // sizes from a source 1024px x 1024px PSD
 //
+// [name]-20.png
+// [name]-20@2x.png
+// [name]-20@3x.png
 // [name]-29.png
 // [name]-29@2x.png
 // [name]-29@3x.png
@@ -58,8 +61,11 @@ function main() {
     // Set ruler untis to pixels
     app.preferences.typeUnits = TypeUnits.PIXELS
 
-    // iOS 8 Icons
+    // iOS 10 Icons
 
+    resize(20,1);
+    resize(20,2);
+    resize(20,3);
     resize(29,1);
     resize(29,2);
     resize(29,3);
