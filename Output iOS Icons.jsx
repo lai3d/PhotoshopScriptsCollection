@@ -85,6 +85,7 @@ function main() {
     resize(83.5,2);
     resize(512,1);
     resize(512,2);
+    resize(1024,1);
 
     // Clean up
     app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
